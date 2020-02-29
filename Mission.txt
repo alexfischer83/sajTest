@@ -1,0 +1,23 @@
+Inhalte
+-------
+- Klassen
+- Flask und Web-UI
+- MySQL
+- MongoDB
+- Machine Learning
+- Django
+
+Links von JM:
+-------------
+- https://www.heise.de/newsticker/meldung/Videokurs-Python-Bootcamp-4652810.html
+    - Anmerkung: Qt nicht relevant s. 1-4. der Liste
+- https://www.youtube.com/watch?v=_uQrJ0TkZlc&feature=youtu.be&t=16417
+
+
+
+Hands-on
+--------
+1) Excel import - Matrix multiplikation - Excel Export
+2) Recommender System nachbauen (Excel import nutzen)
+    2a) Ergbnisse in Datenbank ablegen
+3) BLAST Search NCBI
