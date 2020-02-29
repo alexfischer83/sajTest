@@ -18,6 +18,7 @@ Links von JM:
 Hands-on
 --------
 1) Excel import - Matrix multiplikation - Excel Export
-2) Recommender System nachbauen (Excel import nutzen)
+2) Using github
+3) Recommender System nachbauen (Excel import nutzen)
     2a) Ergbnisse in Datenbank ablegen
-3) BLAST Search NCBI
+4) BLAST Search NCBI
