@@ -7,40 +7,35 @@ payLoad = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?" \
           "&PROGRAM=blastn" \
           "&CMD=Put"
 res = requests.get(payLoad)
-
-#print(res)
 content = res.text
-
-print(content)
 
 toFind = "RID = "
 start = content.find(toFind)+len(toFind)
 end = content.find("\n", start)
 RID = content[start:end]
-#print("RID ist "+RID)
+print("RID ist "+RID)
 
 toFind = "RTOE = "
 start = content.find(toFind)+len(toFind)
 end = content.find("\n", start)
 RTOE = int(content[start:end])
-#print("RTOE ist "+str(RTOE))
+print("RTOE ist "+str(RTOE))
 
-factor = 10
-time.sleep(factor*(RTOE/1000))
+#TODO Der RTOE ist vermutlich in Minuten zu verstehen und nicht in Sekunden (obwohl es so auf der Blast API Seite steht - bei Mathworks gibt es eine Info, die auf Minuten schließen lässt)
+time.sleep(RTOE)
+while 1:
+    time.sleep(5)
 
-payLoad2 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?" \
-          "RID="+RID+"" \
-          "&CMD=Get"
-res2 = requests.get(payLoad2)
-content2 = res2.text
+    payLoad2 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?" \
+               "FORMAT_OBJECT = SearchInfo" \
+               "&RID="+RID+\
+               "&CMD=Get"
+    res2 = requests.get(payLoad2)
+    content2 = res2.text
 
-print(content2)
+    toFind = "Status="
+    start = content2.find(toFind)+len(toFind)
+    end = content2.find("\n", start)
+    blastStatus = content2[start:end]
 
-toFind = "Status="
-start = content2.find(toFind)+len(toFind)
-end = content2.find("\n", start)
-blastStatus = content2[start:end]
-
-print("RID ist "+RID)
-print("RID ist "+str(RTOE))
-print("Status ist "+blastStatus)
+    print("RID "+RID+" hat folgenden Status: "+blastStatus)
