@@ -21,13 +21,12 @@ end = content.find("\n", start)
 RTOE = int(content[start:end])
 print("RTOE ist "+str(RTOE))
 
-#TODO Der RTOE ist vermutlich in Minuten zu verstehen und nicht in Sekunden (obwohl es so auf der Blast API Seite steht - bei Mathworks gibt es eine Info, die auf Minuten schließen lässt)
-time.sleep(RTOE)
+time.sleep(RTOE*60)
 while 1:
     time.sleep(5)
 
     payLoad2 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?" \
-               "FORMAT_OBJECT = SearchInfo" \
+               "FORMAT_OBJECT=SearchInfo" \
                "&RID="+RID+\
                "&CMD=Get"
     res2 = requests.get(payLoad2)
@@ -39,3 +38,18 @@ while 1:
     blastStatus = content2[start:end]
 
     print("RID "+RID+" hat folgenden Status: "+blastStatus)
+    if blastStatus == "READY":
+        break
+
+payLoad3 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?" \
+           "FORMAT_OBJECT=Alignment" \
+           "&FORMAT_TYPE=TEXT" \
+           "&RID="+RID+\
+           "&CMD=Get"
+res3 = requests.get(payLoad3)
+content3 = res3.text
+
+print(content3)
+print("RID " + RID + " hat folgenden Status: " + blastStatus)
+print("RID ist "+RID)
+print("RTOE ist "+str(RTOE))
