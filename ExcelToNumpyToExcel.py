@@ -3,8 +3,7 @@ import pandas as pd
 import time
 
 myPath = 'TwoTimes3x3Matricies.xlsx'
-maxRange = 10000
-
+maxRange = 100000
 
 df1 = pd.read_excel(myPath, header=None)
 df2 = pd.read_excel(myPath, 1, header=None)
