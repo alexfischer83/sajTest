@@ -19,7 +19,15 @@ Hands-on
 --------
 1) Excel import - Matrix multiplikation - Excel Export
 2) Using github
-3) API call von irgendwas und abfangen der response
-4) Recommender System nachbauen (Excel import nutzen)
+3) API call von irgendwas und abfangen der response#
+    a) NCBI BLAST Search
+    b) ???
+4) Threads nutzen
+    a) Synchron:
+    b) Asynchron:
+5) MySQL und/oder MongoDB als Speicherort für
+6) Quees (Rabbit???)
+7) Exceptions
+8) Recommender System nachbauen (Excel import nutzen)
     2a) Ergbnisse in Datenbank ablegen
-5) BLAST Search NCBI
+
